@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { hashHistory, Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+// import { videoData } from '../actions/actions';
+
 
 class Home extends Component {
   render() {
@@ -12,4 +17,14 @@ class Home extends Component {
   }
 }
 
-export default Home;
+function mapStateToProps(state) {
+  return {
+    // video: state.video,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ /* videoData */ }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
